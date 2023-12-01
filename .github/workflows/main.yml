@@ -25,7 +25,7 @@ jobs:
 
       - name: Run SpotBugs
         run: |
-          java -jar spotbugs-4.5.3/lib/spotbugs.jar -textui -effort:max -xml:withMessages -output spotbugs-report.xml path/to/your/classes
+          java -jar spotbugs-4.5.3/lib/spotbugs.jar -textui -effort:max -xml:withMessages -output spotbugs-report.xml ./
           
       - name: Compile
         run: |
