@@ -1,0 +1,25 @@
+name: Setup
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup:
+    runs-on: container
+    container:
+      image: openjdk:11
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Test
+        run: echo "hello world"
+          # sudo service mysql start
+          # sudo mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS actionsJava;"
+          # sudo mysql -u root -proot actionsJava < database.sql
+          # javac Main.java
+          # echo 1 | java -cp .:mysql-connector-java-8.2.0.jar Main
+          # java -cp .:mysql-connector-java-8.2.0.jar Main < input.txt
+        shell: bash
