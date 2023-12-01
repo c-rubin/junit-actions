@@ -18,11 +18,15 @@ jobs:
           distribution: adopt
           java-version: '11'
 
-      - name: Run Checkstyle
+      - name: Download SpotBugs
         run: |
-          wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.44/checkstyle-8.44-all.jar
-          java -jar checkstyle-8.44-all.jar -c /path/to/checkstyle-config.xml src/
+          wget https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/4.5.3/spotbugs-4.5.3.tgz
+          tar -xvf spotbugs-4.5.3.tgz
 
+      - name: Run SpotBugs
+        run: |
+          java -jar spotbugs-4.5.3/lib/spotbugs.jar -textui -effort:max -xml:withMessages -output spotbugs-report.xml path/to/your/classes
+          
       - name: Compile
         run: |
           javac -cp .:./lib/junit-4.13.2.jar:./lib/hamcrest-core1.3.jar GradeTest.java GradeCalculator.java Grade.java
