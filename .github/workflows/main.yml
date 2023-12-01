@@ -15,7 +15,7 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v2
         with:
-          distribution: openjdk
+          distribution: adopt
           java-version: '11'
 
       - name: Run Checkstyle
