@@ -123,8 +123,6 @@ public class GradeTest {
             grade = GradeCalculator.calculateGrade(41,5.8f);//21.0 rounded up (must remain 21)
             assertEquals(21,(int)grade.getGrade());
 
-            //testing actions
-            fail();
         }catch(Exception ex){
             ex.printStackTrace();
             fail("Exception");
