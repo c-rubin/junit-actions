@@ -12,6 +12,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Setup JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Run Checkstyle
+        run: |
+          wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.44/checkstyle-8.44-all.jar
+          java -jar checkstyle-8.44-all.jar -c /path/to/checkstyle-config.xml src/
+
       - name: Compile
         run: |
           javac -cp .:./lib/junit-4.13.2.jar:./lib/hamcrest-core1.3.jar GradeTest.java GradeCalculator.java Grade.java
