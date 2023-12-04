@@ -19,6 +19,6 @@ public class Grade {
     }
 
     public Integer getGrade() {
-        return null;
+        return void;
     }
 }
